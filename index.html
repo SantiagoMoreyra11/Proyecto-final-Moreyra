@@ -14,6 +14,15 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css"
+    />
+
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
     <title>Armory</title>
   </head>
@@ -71,6 +80,13 @@
       </section>
     </header>
     <main>
+      <div class="container-fluid">
+        <div class="row text-center">
+          <div class="col-12">
+            <p class="h1">Productos Recomendados</p>
+          </div>
+        </div>
+      </div>
       <div id="productos-container"></div>
       <hr />
       <section id="cuerpo-video">
@@ -128,27 +144,6 @@
                 >Productos</a
               >
             </div>
-            <div class="mb-3">
-              <a
-                class="text-secondary text-decoration-none"
-                href="pages/marca.html"
-                >Sponsor</a
-              >
-            </div>
-            <div class="mb-3">
-              <a
-                class="text-secondary text-decoration-none"
-                href="pages/contacto.html"
-                >Contactos</a
-              >
-            </div>
-            <div class="mb-3">
-              <a
-                class="text-secondary text-decoration-none"
-                href="pages/carrito.html"
-                >Carrito</a
-              >
-            </div>
           </div>
           <div class="col col-md-6 col-lg-3">
             <p class="h5 mb-3">Links</p>
@@ -192,12 +187,13 @@
       </div>
     </footer>
     <!-- scrips  -->
-    <script src="main.js" ;></script>
-    <!-- scrips  -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.all.min.js"></script>
+    <script src="main.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <!-- scrips  -->
   </body>
 </html>

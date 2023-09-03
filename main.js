@@ -1,28 +1,39 @@
 //logeo de pagina
-const email = prompt("ingrese su mail");
-const emailRegistrado = "Santigamer240@gmail.com";
-ContieneArroba = false;
-console.log(email);
 
-for (let i = 0; i < email.length; i++) {
-  if (email[i] === "@") {
-    ContieneArroba = true;
-    break;
-  }
-}
-if (ContieneArroba) {
-  if (ContieneArroba == true && emailRegistrado === email) {
-    console.log("Sesion iniciada correctamente");
-    alert("Sesion iniciada correctamente");
-  } else if (ContieneArroba == true) {
-    console.log("Su mail es incorrecto");
-    alert("Su mail es incorrecto");
-  }
-} else {
-  alert("Mail no valido");
-  console.log("Mail no valido");
-}
+(async () => {
+  const { value: email } = await Swal.fire({
+    title: "Ingrese su correo electrónico",
+    input: "email",
+    inputLabel: "Su dirección de correo electrónico",
+    inputPlaceholder: "Ingrese su dirección de correo electrónico",
+  });
 
+  if (email) {
+    const emailRegistrado = "Santigamer240@gmail.com";
+    let ContieneArroba = false;
+    console.log(email);
+
+    for (let i = 0; i < email.length; i++) {
+      if (email[i] === "@") {
+        ContieneArroba = true;
+        break;
+      }
+    }
+
+    if (ContieneArroba) {
+      if (ContieneArroba && emailRegistrado === email) {
+        console.log("Sesión iniciada correctamente");
+        Swal.fire("Sesión iniciada correctamente");
+      } else {
+        console.log("Su correo electrónico es incorrecto");
+        Swal.fire("Su correo electrónico es incorrecto");
+      }
+    } else {
+      Swal.fire("Correo electrónico no válido");
+      console.log("Correo electrónico no válido");
+    }
+  }
+})();
 //
 
 const producto = [
@@ -55,6 +66,16 @@ const producto = [
     imagen: "img/creatina3.jpg",
     descripcion:
       "Whey Protein Isolate (WPI) es la forma más pura de proteína de suero que existe actualmente.",
+  },
+  {
+    id: 4,
+    producto: "bcaa 6000 grs de XXL nutrex",
+    categoria: "Suplemento",
+    precio: 49.99,
+    marca: "XXL",
+    imagen: "img/creatina4.jpg",
+    descripcion:
+      "Ideal para prevenir fatiga muscular, aumento muscular y mejorar el rendimiento.",
   },
 ];
 
@@ -96,7 +117,7 @@ const generarTarjetas = (productos) => {
       const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
       carrito.push(producto);
       localStorage.setItem("carrito", JSON.stringify(carrito));
-      alert("Producto agregado al carrito.");
+      Swal.fire("Producto agregado al carrito Agregado!", "", "success");
     });
 
     tarjeta.appendChild(nombre);
@@ -114,3 +135,5 @@ const generarTarjetas = (productos) => {
 };
 
 generarTarjetas(producto);
+
+//

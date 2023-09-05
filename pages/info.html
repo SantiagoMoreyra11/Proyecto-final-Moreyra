@@ -3,34 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
-    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css"
+      href="@sweetalert2/theme-bootstrap-4/bootstrap-4.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css"
-    />
-
-    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/style.css" />
     <title>Armory</title>
   </head>
   <body>
@@ -40,9 +33,9 @@
           <div class="container-fluid">
             <section id="logo">
               <div class="h3">
-                <a class="text-white text-decoration-none" href="index.html"
+                <a class="text-white text-decoration-none" href="../index.html"
                   ><img
-                    src="img/logo.png"
+                    src="../img/logo.png"
                     alt="logo"
                     width="80"
                     height="50"
@@ -64,10 +57,17 @@
             <div class="collapse navbar-collapse show color" id="navbarDark">
               <ul class="navbar-nav me-auto mb-2 mb-xl-0">
                 <li class="nav-item">
-                  <a class="nav-link active" href="index.html">Inicio</a>
+                  <a class="nav-link" href="../index.html">Inicio</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/producto.html">Productos</a>
+                  <a class="nav-link" href="../pages/producto.html"
+                    >Productos</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="../pages/info.html"
+                    >Informacion</a
+                  >
                 </li>
               </ul>
               <form class="d-flex">
@@ -87,66 +87,35 @@
       </section>
     </header>
     <main>
-      <div id="Fondo-mas-info">
+      <div id="Fondo-info">
         <div class="container-fluid">
-          <div class="row justify-content-center">
-            <div class="col-md-6">
-              <p class="h1 text-center pb-4 text-white">Sobre Nosotros</p>
-              <p class="h3 text-white">
+          <div class="row justify-content-center pb-4">
+            <div class="col-md-6 text-white">
+              <p class="h1 text-center pb-3 pt-3">
+                Mas Informacion sobre Nosotros
+              </p>
+              <p class="h5 text-center">
                 ¡Bienvenidos a Armory! Somos un equipo apasionado de expertos en
                 salud y bienestar comprometidos en proporcionar productos de
                 alta calidad que ayuden a las personas a alcanzar sus metas de
-                salud y fitness de manera natural y efectiva. Nuestra historia
-                comenzó con la creencia de que todos merecen sentirse y verse
-                mejor. Con esa visión en mente, hemos trabajado incansablemente
-                para ofrecer suplementos de la más alta calidad que respalden
-                una vida activa y saludable.
+                salud y fitness de manera natural y efectiva. Nuestro equipo
+                está compuesto por expertos en nutrición, deportistas y
+                profesionales de la salud que comparten una pasión por el
+                bienestar. Estamos aquí para proporcionarte información experta
+                y orientación personalizada. No solo vendemos suplementos;
+                también brindamos educación y apoyo para ayudarte a tomar
+                decisiones informadas sobre tu salud. Gracias por confiar en
+                nosotros para ayudarte a alcanzar tus objetivos de salud y
+                bienestar. Estamos comprometidos en ser tu socio en este viaje y
+                esperamos que disfrutes explorando nuestra gama de productos de
+                alta calidad. Siempre estamos aquí para apoyarte en tu búsqueda
+                de una vida más saludable y activa. ¡Gracias por ser parte de la
+                familia Armory!
               </p>
             </div>
           </div>
         </div>
-        <div class="container-fluid">
-          <div class="row justify-content-center pt-3 pb-3">
-            <div class="col-md-1">
-              <button id="botton-mas-info" onclick="showAlert()">
-                Más Informacion
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
-      <div class="container-fluid">
-        <div class="row text-center">
-          <div class="col-12">
-            <p class="h1 pb-3 pt-3">Productos Recomendados</p>
-            <div id="productos-container"></div>
-          </div>
-        </div>
-      </div>
-      <section id="cuerpo-video">
-        <h2>
-          <p class="text-center text-white pt-2 pb-2">
-            Cbum x Raw PreWorkout!!
-          </p>
-        </h2>
-        <section class="container">
-          <div class="row justify-content-center pb-4">
-            <div class="col-md-9">
-              <div class="ratio ratio-16x9">
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/poC8-CLSpp0"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </div>
-          </div>
-        </section>
-      </section>
     </main>
     <footer>
       <div class="container-fluid">
@@ -155,7 +124,7 @@
             <div class="h3">
               <a class="text-white text-decoration-none" href="index.html"
                 ><img
-                  src="img/logo.png"
+                  src="../img/logo.png"
                   alt="logo"
                   width="80"
                   height="50"
@@ -167,14 +136,16 @@
           <div class="col col-md-6 col-lg-3">
             <p class="h5 mb-3">Enlaces</p>
             <div class="mb-3">
-              <a class="text-secondary text-decoration-none" href="index.html"
+              <a
+                class="text-secondary text-decoration-none"
+                href="../index.html"
                 >Inicio</a
               >
             </div>
             <div class="mb-3">
               <a
                 class="text-secondary text-decoration-none"
-                href="pages/producto.html"
+                href="../pages/producto.html"
                 >Productos</a
               >
             </div>
@@ -221,14 +192,13 @@
       </div>
     </footer>
     <!-- scrips  -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.all.min.js"></script>
-
-    <script src="main.js"></script>
-    <script src="array.js"></script>
+    <script src="../array.js"></script>
+    <!-- bootstrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

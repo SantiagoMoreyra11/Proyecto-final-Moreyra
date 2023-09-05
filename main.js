@@ -1,36 +1,40 @@
 //logeo de pagina
 
 (async () => {
-  const { value: email } = await Swal.fire({
-    title: "Ingrese su correo electrónico",
-    input: "email",
-    inputLabel: "Su dirección de correo electrónico",
-    inputPlaceholder: "Ingrese su dirección de correo electrónico",
-  });
+  if (!localStorage.getItem("codigoEjecutado")) {
+    const { value: email } = await Swal.fire({
+      title: "Ingrese su correo electrónico",
+      input: "email",
+      inputLabel: "Su dirección de correo electrónico",
+      inputPlaceholder: "Ingrese su dirección de correo electrónico",
+    });
 
-  if (email) {
-    const emailRegistrado = "Santigamer240@gmail.com";
-    let ContieneArroba = false;
-    console.log(email);
+    if (email) {
+      const emailRegistrado = "Santigamer240@gmail.com";
+      let ContieneArroba = false;
+      console.log(email);
 
-    for (let i = 0; i < email.length; i++) {
-      if (email[i] === "@") {
-        ContieneArroba = true;
-        break;
+      for (let i = 0; i < email.length; i++) {
+        if (email[i] === "@") {
+          ContieneArroba = true;
+          break;
+        }
       }
-    }
 
-    if (ContieneArroba) {
-      if (ContieneArroba && emailRegistrado === email) {
-        console.log("Sesión iniciada correctamente");
-        Swal.fire("Sesión iniciada correctamente");
+      if (ContieneArroba) {
+        if (ContieneArroba && emailRegistrado === email) {
+          console.log("Sesión iniciada correctamente");
+          Swal.fire("Sesión iniciada correctamente");
+        } else {
+          console.log("Su correo electrónico es incorrecto");
+          Swal.fire("Su correo electrónico es incorrecto");
+        }
       } else {
-        console.log("Su correo electrónico es incorrecto");
-        Swal.fire("Su correo electrónico es incorrecto");
+        Swal.fire("Correo electrónico no válido");
+        console.log("Correo electrónico no válido");
       }
-    } else {
-      Swal.fire("Correo electrónico no válido");
-      console.log("Correo electrónico no válido");
+
+      localStorage.setItem("codigoEjecutado", "true");
     }
   }
 })();
@@ -117,7 +121,13 @@ const generarTarjetas = (productos) => {
       const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
       carrito.push(producto);
       localStorage.setItem("carrito", JSON.stringify(carrito));
-      Swal.fire("Producto agregado al carrito Agregado!", "", "success");
+      Toastify({
+        text: "Producto agregado al carrito!",
+        className: "info",
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+      }).showToast();
     });
 
     tarjeta.appendChild(nombre);
@@ -137,3 +147,19 @@ const generarTarjetas = (productos) => {
 generarTarjetas(producto);
 
 //
+
+function showAlert() {
+  Swal.fire({
+    title: "Quieres saber mas sobre nosotros?",
+    showDenyButton: true,
+    confirmButtonText: "Ir a mas INFO",
+    denyButtonText: `Permanecer Aqui`,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = "http://127.0.0.1:5500/pages/info.html";
+    } else if (result.isDenied) {
+    }
+  });
+}
+
+

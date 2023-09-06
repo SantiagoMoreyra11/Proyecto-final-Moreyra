@@ -1,4 +1,4 @@
-//logeo de pagina
+//logeo de pagina (pagina inicio)
 
 (async () => {
   if (!localStorage.getItem("codigoEjecutado")) {
@@ -38,7 +38,8 @@
     }
   }
 })();
-//
+
+// Array (pagina inicio)
 
 const producto = [
   {
@@ -146,7 +147,7 @@ const generarTarjetas = (productos) => {
 
 generarTarjetas(producto);
 
-//
+//js de promesa (pagina inicio)
 
 function showAlert() {
   Swal.fire({
@@ -162,4 +163,31 @@ function showAlert() {
   });
 }
 
+//js de contacto
+
+document.addEventListener("DOMContentLoaded", function () {
+  const contactForm = document.getElementById("contactForm");
+  const confirmationMessage = document.getElementById("confirmationMessage");
+
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = contactForm.querySelector("#name").value;
+    const email = contactForm.querySelector("#email").value;
+    const message = contactForm.querySelector("#message").value;
+
+    if (name.length < 3) {
+      confirmationMessage.innerText =
+        "El nombre debe tener al menos 3 caracteres.";
+    } else if (
+      !email.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}/)
+    ) {
+      confirmationMessage.innerText = "El email ingresado no es válido.";
+    } else {
+      confirmationMessage.innerText = "Formulario enviado correctamente.";
+      contactForm.reset();
+    }
+  });
+});
+
+///////////////////////////////////////////////////////////////////////////
 

@@ -39,8 +39,9 @@
   }
 })();
 
+//
 //darkmode
-
+//
 
 function toggleDarkMode() {
   const body = document.body;
@@ -76,8 +77,9 @@ if (darkModeToggle) {
 
 
 
-
+//
 // Array (pagina inicio)
+//
 
 const producto = [
   {
@@ -137,7 +139,7 @@ const producto = [
   },
   {
     id: 6,
-    producto: "Creatina 300 grs de XXL Pro Nutrition",
+    producto: "BCAA Hydro PRO",
     categoria: "Suplemento",
     precio: 49.99,
     marca: "XXL",
@@ -148,7 +150,7 @@ const producto = [
   },
   {
     id: 7,
-    producto: "Protein Star Nutrition",
+    producto: "Universal Super cute 3",
     categoria: "Suplemento",
     precio: 49.99,
     marca: "Star Nutrition",
@@ -159,7 +161,7 @@ const producto = [
   },
   {
     id: 8,
-    producto: "TrueMade Whey Protein",
+    producto: "ENA carbo Energy",
     categoria: "Suplemento",
     precio: 29.99,
     marca: "Ena",
@@ -170,7 +172,7 @@ const producto = [
   },
   {
     id: 9,
-    producto: "Bcaa 6000 de Nutrex 255 gramos",
+    producto: "Gainer Whey ",
     categoria: "Suplemento",
     precio: 9.99,
     marca: "Ena",
@@ -181,7 +183,7 @@ const producto = [
   },
   {
     id: 10,
-    producto: "Vaso Shakers",
+    producto: "Nitrogain Big Size 5kg",
     categoria: "Accesorio",
     precio: 25.99,
     marca: " Shark Design",
@@ -289,7 +291,9 @@ filterCheckbox.addEventListener("change", () => {
   filterByOffer(checked);
 });
 
+//
 //js de promesa (pagina inicio)
+//
 
 function showAlert() {
   Swal.fire({
@@ -305,7 +309,9 @@ function showAlert() {
   });
 }
 
+//
 //js de contacto
+//
 
 document.addEventListener("DOMContentLoaded", function () {
   const contactForm = document.getElementById("contactForm");

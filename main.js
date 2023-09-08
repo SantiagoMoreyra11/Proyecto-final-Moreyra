@@ -1,4 +1,4 @@
-//logeo de pagina (pagina inicio)
+///////////////////////logueo de pagina/////////////////////////////
 
 (async () => {
   if (!localStorage.getItem("codigoEjecutado")) {
@@ -39,6 +39,44 @@
   }
 })();
 
+//darkmode
+
+
+function toggleDarkMode() {
+  const body = document.body;
+  const navbar = document.querySelector(".navbar");
+  const cards = document.querySelectorAll(".card");
+
+
+  body.classList.toggle("dark-mode");
+  navbar.classList.toggle("dark-mode");
+
+
+  cards.forEach((card) => {
+    card.classList.toggle("dark-mode");
+  });
+
+  
+  const isDarkMode = body.classList.contains("dark-mode");
+  localStorage.setItem("dark-mode", isDarkMode);
+}
+
+
+const storedDarkMode = localStorage.getItem("dark-mode");
+if (storedDarkMode === "true") {
+  toggleDarkMode();
+}
+
+
+const darkModeToggle = document.getElementById("dark-mode-toggle");
+if (darkModeToggle) {
+  darkModeToggle.addEventListener("click", toggleDarkMode);
+}
+
+
+
+
+
 // Array (pagina inicio)
 
 const producto = [
@@ -48,9 +86,10 @@ const producto = [
     categoria: "Suplemento",
     precio: 49.99,
     marca: "XXL",
-    imagen: "img/creatina1.jpg",
+    imagen: "../img/creatina1.jpg",
     descripcion:
       "Ideal para prevenir fatiga muscular, aumento muscular y mejorar el rendimiento.",
+    offer: true,
   },
   {
     id: 2,
@@ -58,9 +97,10 @@ const producto = [
     categoria: "Suplemento",
     precio: 49.99,
     marca: "Star Nutrition",
-    imagen: "img/creatina2.jpg",
+    imagen: "../img/creatina2.jpg",
     descripcion:
       "Envase de 300 gramos. Ideal para cualquier tipo de deportes. Masa muscular. Recuperación.",
+    offer: false,
   },
   {
     id: 3,
@@ -68,19 +108,87 @@ const producto = [
     categoria: "Suplemento",
     precio: 29.99,
     marca: "Ena",
-    imagen: "img/creatina3.jpg",
+    imagen: "../img/creatina3.jpg",
     descripcion:
       "Whey Protein Isolate (WPI) es la forma más pura de proteína de suero que existe actualmente.",
+    offer: true,
   },
   {
     id: 4,
-    producto: "bcaa 6000 grs de XXL nutrex",
+    producto: "Bcaa 6000 de Nutrex 255 gramos",
+    categoria: "Suplemento",
+    precio: 9.99,
+    marca: "Ena",
+    imagen: "../img/creatina4.jpg",
+    descripcion:
+      "Aminos BCAA de Nutrex. Importados. Masa muscular. Rendimiento. Previene fatiga.",
+    offer: false,
+  },
+  {
+    id: 5,
+    producto: "Vaso Shakers",
+    categoria: "Accesorio",
+    precio: 25.99,
+    marca: " Shark Design",
+    imagen: "../img/creatina6.jpg",
+    descripcion:
+      "Vaso mezclador de Game of Thrones. Semi transparente. Con tapa a rosca y pico a presión.",
+    offer: true,
+  },
+  {
+    id: 6,
+    producto: "Creatina 300 grs de XXL Pro Nutrition",
     categoria: "Suplemento",
     precio: 49.99,
     marca: "XXL",
-    imagen: "img/creatina4.jpg",
+    imagen: "../img/creatina5.jpg",
     descripcion:
       "Ideal para prevenir fatiga muscular, aumento muscular y mejorar el rendimiento.",
+    offer: true,
+  },
+  {
+    id: 7,
+    producto: "Protein Star Nutrition",
+    categoria: "Suplemento",
+    precio: 49.99,
+    marca: "Star Nutrition",
+    imagen: "../img/creatina7.jpg",
+    descripcion:
+      "Envase de 300 gramos. Ideal para cualquier tipo de deportes. Masa muscular. Recuperación.",
+    offer: false,
+  },
+  {
+    id: 8,
+    producto: "TrueMade Whey Protein",
+    categoria: "Suplemento",
+    precio: 29.99,
+    marca: "Ena",
+    imagen: "../img/creatina8.jpg",
+    descripcion:
+      "Whey Protein Isolate (WPI) es la forma más pura de proteína de suero que existe actualmente.",
+    offer: true,
+  },
+  {
+    id: 9,
+    producto: "Bcaa 6000 de Nutrex 255 gramos",
+    categoria: "Suplemento",
+    precio: 9.99,
+    marca: "Ena",
+    imagen: "../img/creatina9.jpg",
+    descripcion:
+      "Aminos BCAA de Nutrex. Importados. Masa muscular. Rendimiento. Previene fatiga.",
+    offer: false,
+  },
+  {
+    id: 10,
+    producto: "Vaso Shakers",
+    categoria: "Accesorio",
+    precio: 25.99,
+    marca: " Shark Design",
+    imagen: "../img/creatina10.jpg",
+    descripcion:
+      "Vaso mezclador de Game of Thrones. Semi transparente. Con tapa a rosca y pico a presión.",
+    offer: true,
   },
 ];
 
@@ -145,7 +253,41 @@ const generarTarjetas = (productos) => {
   contenedor.appendChild(tarjetasHTML);
 };
 
+const sortProducts = (order) => {
+  producto.sort((a, b) => {
+    if (order === "asc") {
+      return a.producto.localeCompare(b.producto);
+    } else if (order === "desc") {
+      return b.producto.localeCompare(a.producto);
+    }
+  });
+
+  generarTarjetas(producto);
+};
+
+const filterByOffer = (checked) => {
+  const filteredProducts = producto.filter((product) =>
+    checked ? product.offer : true
+  );
+  generarTarjetas(filteredProducts);
+};
+
+
 generarTarjetas(producto);
+
+
+const sortSelect = document.getElementById("sort");
+sortSelect.addEventListener("change", () => {
+  const order = sortSelect.value;
+  sortProducts(order);
+});
+
+
+const filterCheckbox = document.getElementById("filter");
+filterCheckbox.addEventListener("change", () => {
+  const checked = filterCheckbox.checked;
+  filterByOffer(checked);
+});
 
 //js de promesa (pagina inicio)
 
@@ -189,5 +331,5 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-///////////////////////////////////////////////////////////////////////////
+
 

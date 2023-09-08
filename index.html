@@ -65,10 +65,14 @@
                   <a class="nav-link active" href="index.html">Inicio</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/producto.html">Productos</a>
+                  <a class="nav-link" href="pages/contacto.html">Contacto</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/contacto.html">Contacto</a>
+                  <a class="nav-link" href="pages/producto.html">Productos</a>
+                </li>
+
+                <li class="nav-item">
+                  <button id="dark-mode-toggle">Modo Oscuro</button>
                 </li>
               </ul>
               <form class="d-flex">
@@ -94,20 +98,25 @@
             <div class="col-md-6">
               <p class="h1 text-center pb-4 text-white">Sobre Nosotros</p>
               <p class="h3 text-white">
-                ¡Bienvenidos a Armory! Somos un equipo apasionado de expertos en
-                salud y bienestar comprometidos en proporcionar productos de
-                alta calidad que ayuden a las personas a alcanzar sus metas de
-                salud y fitness de manera natural y efectiva. Nuestra historia
-                comenzó con la creencia de que todos merecen sentirse y verse
-                mejor. Con esa visión en mente, hemos trabajado incansablemente
-                para ofrecer suplementos de la más alta calidad que respalden
-                una vida activa y saludable.
+                Bienvenidos a Armory, tu aliado en el camino hacia una vida más
+                saludable y equilibrada. Nos enorgullece presentarte una gama
+                excepcional de suplementos nutricionales diseñados para mejorar
+                tu bienestar y potenciar tu calidad de vida. En Armory, creemos
+                firmemente en que la salud es el activo más valioso que
+                poseemos. Por eso, nos dedicamos a proporcionar productos de la
+                más alta calidad, formulados con ingredientes naturales y
+                respaldados por la ciencia. Nuestro compromiso es ayudarte a
+                alcanzar tus objetivos de salud y bienestar de manera segura y
+                efectiva.
+                <br />
+                <br />
+                <br />
               </p>
             </div>
           </div>
         </div>
         <div class="container-fluid">
-          <div class="row justify-content-center pt-3 pb-3">
+          <div class="row justify-content-center pt-3 pb-5">
             <div class="col-md-1">
               <button id="botton-mas-info" onclick="showAlert()">
                 Más Informacion
@@ -196,11 +205,19 @@
           <span class="visually-hidden">Siguiente</span>
         </button>
       </div>
+      <div class="validador">
+        <label for="sort">Ordenar por:</label>
+        <select id="sort">
+          <option value="asc">Ascendente (A-Z)</option>
+          <option value="desc">Descendente (Z-A)</option>
+        </select>
+        <label for="filter">Filtrar por oferta:</label>
+        <input type="checkbox" id="filter" />
+      </div>
       <div class="container-fluid">
-        <div class="row text-center">
+        <div class="row text-center pb-5">
           <div class="col-12">
-            <p class="h1 pb-3 pt-3">Productos Recomendados</p>
-            <div id="productos-container"></div>
+            <div class="productos-container" id="productos-container"></div>
           </div>
         </div>
       </div>
@@ -210,12 +227,12 @@
             Cbum x Raw PreWorkout!!
           </p>
         </h2>
-        <section class="container">
+        <section class="container-fluid">
           <div class="row justify-content-center pb-4">
-            <div class="col-md-9">
+            <div class="col-md-6">
               <div class="ratio ratio-16x9">
                 <iframe
-                  width="560"
+                  width="430"
                   height="315"
                   src="https://www.youtube.com/embed/poC8-CLSpp0"
                   title="YouTube video player"
@@ -259,6 +276,13 @@
                 >Productos</a
               >
             </div>
+            <div class="mb-3">
+              <a
+                class="text-secondary text-decoration-none"
+                href="pages/contacto.html"
+                >Contacto</a
+              >
+            </div>
           </div>
           <div class="col col-md-6 col-lg-3">
             <p class="h5 mb-3">Links</p>
@@ -292,7 +316,7 @@
               (+54(3765)858-15-05)
             </p>
           </div>
-          <div class="container">
+          <div class="container-fluid">
             <div class="row pt-3">
               <div class="col-12">
                 <p class="text-secondary">© Copyright - 2023 - Armory -</p>

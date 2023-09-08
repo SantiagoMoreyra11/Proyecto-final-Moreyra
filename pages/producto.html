@@ -60,12 +60,15 @@
                   <a class="nav-link" href="../index.html">Inicio</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="../pages/producto.html"
-                    >Productos</a
+                  <a class="nav-link " href="../pages/contacto.html"
+                    >Contacto</a
                   >
+                  <li class="nav-item">
+                    <a class="nav-link active" href="../pages/producto.html">Productos</a>
+                  </li>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../pages/contacto.html">Contacto</a>
+                  <button id="dark-mode-toggle">Modo Oscuro</button>
                 </li>
               </ul>
               <form class="d-flex">
@@ -85,6 +88,303 @@
       </section>
     </header>
     <main>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const baseDeDatos = [
+            {
+              id: 1,
+              nombre: "Creatina XXL pure",
+              categoria: "Suplemento",
+              precio: 49.99,
+              marca: "XXL",
+              imagen: "../img/creatina1.jpg",
+              descripcion:
+                "Ideal para prevenir fatiga muscular, aumento muscular y mejorar el rendimiento.",
+            },
+            {
+              id: 2,
+              nombre: "Protein Star Nutrition",
+              categoria: "Suplemento",
+              precio: 49.99,
+              marca: "Star Nutrition",
+              imagen: "../img/creatina2.jpg",
+              descripcion:
+                "Envase de 300 gramos. Ideal para cualquier tipo de deportes. Masa muscular. Recuperación.",
+            },
+            {
+              id: 3,
+              nombre: "TrueMade Whey Protein",
+              categoria: "Suplemento",
+              precio: 29.99,
+              marca: "Ena",
+              imagen: "../img/creatina3.jpg",
+              descripcion:
+                "Whey Protein Isolate (WPI) es la forma más pura de proteína de suero que existe actualmente.",
+            },
+            {
+              id: 4,
+              nombre: "Bcaa 6000 de Nutrex ",
+              categoria: "Suplemento",
+              precio: 9.99,
+              marca: "Ena",
+              imagen: "../img/creatina4.jpg",
+              descripcion:
+                "Aminos BCAA de Nutrex. Importados. Masa muscular. Rendimiento. Previene fatiga.",
+            },
+            {
+              id: 5,
+              nombre: "Vaso Shakers",
+              categoria: "Accesorio",
+              precio: 25.99,
+              marca: " Shark Design",
+              imagen: "../img/creatina6.jpg",
+              descripcion:
+                "Vaso mezclador de Game of Thrones. Semi transparente. Con tapa a rosca y pico a presión.",
+            },
+            {
+              id: 6,
+              nombre: " BCAA Xtrenght Nutrition",
+              categoria: "Suplemento",
+              precio: 32.99,
+              marca: "Xtrenght Nutrition",
+              imagen: "../img/creatina5.jpg",
+              descripcion:
+                "Aminoácido en polvo de rápida asimilación Con Beta Alanina, previene la fatiga muscular..",
+            },
+            {
+              id: 7,
+              nombre: "Quemador de grasa",
+              categoria: "Suplemento",
+              precio: 10.99,
+              marca: "Universal Nutrition",
+              imagen: "../img/creatina7.jpg",
+              descripcion:
+                "Quemador de grasas importado de USA  Aprobado en Argentina",
+            },
+            {
+              id: 8,
+              nombre: "Carbo Energy  Ena Sport",
+              categoria: "Suplemento",
+              precio: 49.99,
+              marca: "Ena",
+              imagen: "../img/creatina8.jpg",
+              descripcion:
+                "Carbohidratos. Ideal para recuperación. Rendimiento. Aumento de energía. Sin Tacc.",
+            },
+            {
+              id: 9,
+              nombre: "Ganador de peso 2 kg ",
+              categoria: "Suplemento",
+              precio: 29.99,
+              marca: "XXL",
+              imagen: "../img/creatina9.jpg",
+              descripcion:
+                "Uno de los mejores ganadores de peso que existe en el mercado, que llego a Argentina.",
+            },
+            {
+              id: 10,
+              nombre: " NitroGain 5 kg Big Size",
+              categoria: "Suplemento",
+              precio: 259.99,
+              marca: "Xtrenght Nutrition ",
+              imagen: "../img/creatina10.jpg",
+              descripcion:
+                "Activa el anabolismo real para los músculos más grandes, más fuertes y más recistentes.",
+            },
+            {
+              id: 11,
+              nombre: "Creatina  XXL pure ",
+              categoria: "Suplemento",
+              precio: 49.99,
+              marca: "XXL",
+              imagen: "../img/creatina1.jpg",
+              descripcion:
+                "Ideal para prevenir fatiga muscular, aumento muscular y mejorar el rendimiento.",
+            },
+            {
+              id: 12,
+              nombre: "Protein Star Nutrition",
+              categoria: "Suplemento",
+              precio: 49.99,
+              marca: "Star Nutrition",
+              imagen: "../img/creatina2.jpg",
+              descripcion:
+                "Envase de 300 gramos. Ideal para cualquier tipo de deportes. Masa muscular. Recuperación.",
+            },
+            {
+              id: 13,
+              nombre: "TrueMade Whey Protein",
+              categoria: "Suplemento",
+              precio: 29.99,
+              marca: "Ena",
+              imagen: "../img/creatina3.jpg",
+              descripcion:
+                "Whey Protein Isolate (WPI) es la forma más pura de proteína de suero que existe actualmente.",
+            },
+            {
+              id: 14,
+              nombre: "Bcaa 6000 de Nutrex ",
+              categoria: "Suplemento",
+              precio: 9.99,
+              marca: "Ena",
+              imagen: "../img/creatina4.jpg",
+              descripcion:
+                "Aminos BCAA de Nutrex. Importados. Masa muscular. Rendimiento. Previene fatiga.",
+            },
+            {
+              id: 15,
+              nombre: "Vaso Shakers",
+              categoria: "Accesorio",
+              precio: 25.99,
+              marca: " Shark Design",
+              imagen: "../img/creatina6.jpg",
+              descripcion:
+                "Vaso mezclador de Game of Thrones. Semi transparente. Con tapa a rosca y pico a presión.",
+            },
+          ];
+
+          let carrito = [];
+          const divisa = "$";
+          const DOMitems = document.querySelector("#items");
+          const DOMcarrito = document.querySelector("#carrito");
+          const DOMtotal = document.querySelector("#total");
+          const DOMbotonVaciar = document.querySelector("#boton-vaciar");
+          const miLocalStorage = window.localStorage;
+
+          function renderizarProductos() {
+            baseDeDatos.forEach((info) => {
+              const miNodo = document.createElement("div");
+              miNodo.classList.add("card", "col-sm-4");
+              const miNodoCardBody = document.createElement("div");
+              miNodoCardBody.classList.add("card-body");
+              const miNodoTitle = document.createElement("h5");
+              miNodoTitle.classList.add("card-title");
+              miNodoTitle.textContent = info.nombre;
+              const miNodoImagen = document.createElement("img");
+              miNodoImagen.classList.add("img-fluid");
+              miNodoImagen.setAttribute("src", info.imagen);
+              const miNodoPrecio = document.createElement("p");
+              miNodoPrecio.classList.add("card-text");
+              miNodoPrecio.textContent = `${info.precio}${divisa}`;
+              const miNodoBoton = document.createElement("button");
+              miNodoBoton.classList.add("btn", "btn-dark");
+              miNodoBoton.textContent = "Agregar al carrito";
+              miNodoBoton.setAttribute("marcador", info.id);
+              miNodoBoton.addEventListener("click", anyadirProductoAlCarrito);
+              miNodoCardBody.appendChild(miNodoImagen);
+              miNodoCardBody.appendChild(miNodoTitle);
+              miNodoCardBody.appendChild(miNodoPrecio);
+              miNodoCardBody.appendChild(miNodoBoton);
+              miNodo.appendChild(miNodoCardBody);
+              DOMitems.appendChild(miNodo);
+            });
+          }
+
+          function anyadirProductoAlCarrito(evento) {
+            carrito.push(evento.target.getAttribute("marcador"));
+            renderizarCarrito();
+            guardarCarritoEnLocalStorage();
+          }
+
+          function renderizarCarrito() {
+            DOMcarrito.textContent = "";
+
+            const carritoSinDuplicados = [...new Set(carrito)];
+
+            carritoSinDuplicados.forEach((item) => {
+              const miItem = baseDeDatos.filter((itemBaseDatos) => {
+                return itemBaseDatos.id === parseInt(item);
+              });
+
+              const numeroUnidadesItem = carrito.reduce((total, itemId) => {
+                return itemId === item ? (total += 1) : total;
+              }, 0);
+
+              const miNodo = document.createElement("li");
+              miNodo.classList.add("list-group-item", "text-right", "mx-2");
+              miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
+
+              const miBoton = document.createElement("button");
+              miBoton.classList.add("btn", "btn-danger", "mx-1");
+              miBoton.textContent = "X";
+              miBoton.style.marginLeft = "1rem";
+              miBoton.dataset.item = item;
+              miBoton.addEventListener("click", borrarItemCarrito);
+
+              miNodo.appendChild(miBoton);
+              DOMcarrito.appendChild(miNodo);
+            });
+
+            DOMtotal.textContent = calcularTotal();
+          }
+
+          function borrarItemCarrito(evento) {
+            const id = evento.target.dataset.item;
+
+            carrito = carrito.filter((carritoId) => {
+              return carritoId !== id;
+            });
+
+            renderizarCarrito();
+
+            guardarCarritoEnLocalStorage();
+          }
+
+          function calcularTotal() {
+            return carrito
+              .reduce((total, item) => {
+                const miItem = baseDeDatos.filter((itemBaseDatos) => {
+                  return itemBaseDatos.id === parseInt(item);
+                });
+
+                return total + miItem[0].precio;
+              }, 0)
+              .toFixed(2);
+          }
+
+          function vaciarCarrito() {
+            carrito = [];
+
+            renderizarCarrito();
+
+            localStorage.clear();
+          }
+
+          function guardarCarritoEnLocalStorage() {
+            miLocalStorage.setItem("carrito", JSON.stringify(carrito));
+          }
+
+          function cargarCarritoDeLocalStorage() {
+
+            if (miLocalStorage.getItem("carrito") !== null) {
+
+              carrito = JSON.parse(miLocalStorage.getItem("carrito"));
+            }
+          }
+
+          DOMbotonVaciar.addEventListener("click", vaciarCarrito);
+
+          cargarCarritoDeLocalStorage();
+          renderizarProductos();
+          renderizarCarrito();
+        });
+      </script>
+      <div class="container">
+        <div class="row pb-4 pt-4">
+
+          <main id="items" class="col-sm-8 row"></main>
+
+          <aside class="col-sm-4">
+            <h2>Carrito</h2>
+
+            <ul id="carrito" class="list-group"></ul>
+            <hr />
+
+            <p class="text-right">Total: <span id="total"></span>$</p>
+            <button id="boton-vaciar" class="btn btn-dark">Vaciar</button>
+          </aside>
+        </div>
+      </div>
     </main>
     <footer>
       <div class="container-fluid">
@@ -116,6 +416,13 @@
                 class="text-secondary text-decoration-none"
                 href="../pages/producto.html"
                 >Productos</a
+              >
+            </div>
+            <div class="mb-3">
+              <a
+                class="text-secondary text-decoration-none"
+                href="../pages/contacto.html"
+                >Contacto</a
               >
             </div>
           </div>
@@ -151,7 +458,7 @@
               (+54(3765)858-15-05)
             </p>
           </div>
-          <div class="container">
+          <div class="container-fluid">
             <div class="row pt-3">
               <div class="col-12">
                 <p class="text-secondary">© Copyright - 2023 - Armory -</p>
@@ -167,6 +474,7 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
+    <script src="../main.js"></script>
     <!-- bootstrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

@@ -208,6 +208,28 @@ textarea {
   border-radius: 5px;
 }
 body.dark-mode {
-  background-color: #121212;
+  background-color: #000000;
   color: #ffffff;
+}
+
+.navbar.dark-mode {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.card.dark-mode {
+  background-color: #333;
+  border: 1px solid #555;
+  color: #ffffff;
+}
+
+.dark-mode #dark-mode-toggle {
+  background-color: #333;
+  border-color: #333;
+  color: #ffffff;
+}
+
+.dark-mode #dark-mode-toggle:hover {
+  background-color: #ffffff;
+  color: #333;
 }
